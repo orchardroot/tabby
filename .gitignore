@@ -1,0 +1,6 @@
+downloads/*
+!downloads/MANIFEST.md
+backup/
+logs/*
+!logs/*.md
+.DS_Store
