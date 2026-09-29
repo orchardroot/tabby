@@ -5,3 +5,4 @@ logs/*
 !logs/*.md
 .DS_Store
 tools/
+!downloads/pit.txt
