@@ -4,3 +4,4 @@ backup/
 logs/*
 !logs/*.md
 .DS_Store
+tools/
