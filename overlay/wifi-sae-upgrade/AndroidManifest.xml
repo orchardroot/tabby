@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tabby: disable Android 11's WPA2-to-WPA3 "SAE upgrade" on transition-mode APs.
+     The gt510lte Wi-Fi driver (WCNSS/prima) cannot do SAE, but the supplicant
+     advertises it, so the framework rewrites every WPA2 join to SAE and it fails
+     with "Failed to select authenticated key management type". -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="uk.orchardroot.tabby.overlay.wifi"
+    android:versionCode="1"
+    android:versionName="1.0">
+    <application android:hasCode="false" />
+    <overlay
+        android:targetPackage="com.android.wifi.resources"
+        android:targetName="WifiCustomization"
+        android:isStatic="true"
+        android:priority="200" />
+</manifest>

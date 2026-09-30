@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Never rewrite a WPA2-PSK network to WPA3-SAE, even if the AP advertises SAE. -->
+    <bool name="config_wifiSaeUpgradeEnabled">false</bool>
+    <bool name="config_wifiSaeUpgradeOffloadEnabled">false</bool>
+</resources>

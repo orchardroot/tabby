@@ -42,6 +42,8 @@ backup/                   EFS and modem partition dumps (never committed, never 
 | `apn-vodafone.sh` | inserts the Vodafone UK APN if the ROM doesn't provision it |
 | `customise.sh` | installs `apps.txt` from F-Droid (32-bit builds only), sets private DNS, disables `disable-packages.txt` |
 | `vendor-apks.sh` | Signal, Tor Browser, Orbot, KOReader from their own hosts |
+| `build-wifi-overlay.sh` | builds and signs the SAE-upgrade overlay |
+| `install-wifi-overlay.sh` | pushes it into /vendor/overlay and reboots (needs Rooted debugging) |
 | `restore-stock.sh` | the way back to stock BTU firmware. Untested by design |
 
 ## Things that bit me
@@ -50,7 +52,19 @@ backup/                   EFS and modem partition dumps (never committed, never 
 - **Heimdall isn't in Homebrew any more.** Built from source; it needs `-DCMAKE_POLICY_VERSION_MINIMUM=3.5`, the `#define nullptr 0` shim removed from two headers, and CoreFoundation and IOKit linked in. The binary lives in `tools/`, gitignored.
 - **This is a 32-bit tablet.** F-Droid's index lists arm64 builds first. Filter on `nativecode` or you get `INSTALL_FAILED_NO_MATCHING_ABIS` and wonder why.
 - **`adb shell` eats stdin.** A `while read` loop that calls adb shell disables exactly one package. Redirect `</dev/null`.
+- **Wi-Fi would not join the home network.** WPA2/WPA3 transition mode plus Android 11's silent SAE upgrade plus a driver with no SAE. See the Wi-Fi fix above.
 - **SourceForge is slow from here.** Four parallel byte-range requests got the 850 MB ROM in a quarter of the time.
+
+## The Wi-Fi fix
+
+Out of the box this ROM cannot join a WPA2/WPA3 mixed-mode router, which is every
+ISP router shipped since about 2021. Android 11 quietly rewrites the WPA2 request to
+WPA3 because the supplicant claims WPA3 support, and the old Qualcomm driver then
+can't negotiate it. The fix is a 12 KB resource overlay that turns the rewrite off,
+signed with the same public test key as the Wi-Fi module and dropped into
+`/vendor/overlay`. Sources and the write-up are in `overlay/wifi-sae-upgrade/`.
+Build with `scripts/build-wifi-overlay.sh`, install with
+`scripts/install-wifi-overlay.sh`. No router changes needed.
 
 ## Known limitations of this build
 

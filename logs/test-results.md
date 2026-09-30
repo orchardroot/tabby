@@ -15,7 +15,7 @@
 
 | Item | Result | Evidence |
 |---|---|---|
-| Wi-Fi | radio up, not yet joined | dumpsys wifi: enabled, scanning |
+| Wi-Fi | FAIL on stock ROM, PASS with overlay | Vodafone hub WPA2/WPA3 transition: `AP key_mgmt 0x402 network profile key_mgmt 0x400`. After `overlay/wifi-sae-upgrade`: joined 5 GHz, 120 Mbps, IP assigned, internet OK |
 | Bluetooth | on | bluetooth_on=1 |
 | GPS | provider present, microG registered a listener | dumpsys location |
 | Sensors | pass | K2HH accelerometer, CM3323 light, SX9500 grip all listed and running |
