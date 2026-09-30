@@ -1,6 +1,8 @@
-# gt510lte
+# Tabby
 
-A £5 Samsung Galaxy Tab A 9.7 LTE (SM-T555) from 2015, dragged into something resembling the present. Stock was Android 7.1.1 with a security patch from the summer of 2017, which is not a sentence a SOC lead wants to type about a device on his own Wi-Fi.
+A privacy-first Android build recipe for the £5 tablet: the 2015 Samsung Galaxy Tab A 9.7 LTE (SM-T555, codename gt510lte), dragged into something resembling the present. Named because it's a Tab A and this house is run by cats. Releases are named after them; this is **Tabby 1.0 "Meadow"**.
+
+Who it's for: people who do security for a living and want a cheap, de-Googled slab for maps, reading, YouTube without the tracking, a terminal, and the odd bit of packet capture. Nothing here needs root. Stock was Android 7.1.1 with a security patch from the summer of 2017, which is not a sentence a SOC lead wants to type about a device on his own Wi-Fi.
 
 The aim is simple and slightly contradictory: a privacy-centric Android (no Google account, microG instead of Play Services) that still uses its own SIM for mobile data, mainly for maps. Every Android 13 build for this tablet has the modem switched off. The Android 11 build has it switched on. So Android 11 it is, for now.
 
@@ -12,7 +14,7 @@ The aim is simple and slightly contradictory: a privacy-centric Android (no Goog
 | Recovery | TWRP 3.1.0-1, and only that version. Newer ones don't boot on this thing |
 | Launcher | Trebuchet |
 | Privacy | microG, RethinkDNS (firewall plus DNS over TLS), private DNS via Quad9 as a fallback, /e/ cloud bits disabled |
-| Apps | F-Droid, Aurora Store, Organic Maps, Fennec, Tor Browser, Orbot, Signal, VLC, KOReader, NewPipe, AntennaPod, Termux, KDE Connect, Fossify Gallery and Files, GPSTest, Jellyfin, Tusky |
+| Apps | see `scripts/apps.txt`. Open-source stand-ins for every Google app, NewPipe for YouTube, plus a security toolkit: Termux, PCAPdroid, WiGLE, ConnectBot, WireGuard, Aegis, KeePassDX, Exodus, Hypatia |
 | Root | None. Everything below is done over adb |
 
 ## Layout

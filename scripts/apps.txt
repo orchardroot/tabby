@@ -1,19 +1,42 @@
+# Stores
 org.fdroid.fdroid
 com.aurora.store
+# Google replacements
 app.organicmaps
-com.celzero.bravedns
 org.mozilla.fennec_fdroid
-org.torproject.android
-com.android.gpstest.osmdroid
-org.videolan.vlc
-org.koreader.launcher
-de.danoeh.antennapod
 org.schabi.newpipe
-com.termux
-org.kde.kdeconnect_tp
+ws.xsoh.etar
+org.fossify.contacts
+org.fossify.calendar
 org.fossify.gallery
 org.fossify.filemanager
-org.joinmastodon.android
-com.nextcloud.client
+org.fossify.messages
+org.fossify.keyboard
+net.gsantner.markor
+com.beemdevelopment.aegis
+com.kunzisoft.keepass.libre
+com.github.catfriend1.syncthingandroid
+de.markusfisch.android.binaryeye
+# Comms
+org.torproject.android
+im.vector.app
 com.keylesspalace.tusky
+# Media and reading
+org.videolan.vlc
+de.danoeh.antennapod
 org.jellyfin.mobile
+# Security toolkit
+com.termux
+com.termux.api
+com.emanuelef.remote_capture
+net.wigle.wigleandroid
+org.connectbot
+com.wireguard.android
+org.eu.exodus_privacy.exodusprivacy
+us.spotco.malwarescanner
+net.kollnig.missioncontrol.fdroid
+com.celzero.bravedns
+# Utilities
+com.android.gpstest.osmdroid
+org.kde.kdeconnect_tp
+com.kylecorry.trail_sense

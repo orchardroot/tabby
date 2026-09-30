@@ -19,7 +19,7 @@ PY
 }
 installed="$(adbs shell pm list packages | tr -d '\r')"
 while read -r pkg; do
-  [ -z "$pkg" ] && continue
+  case "$pkg" in ""|\#*) continue;; esac
   if grep -q "^package:$pkg$" <<<"$installed"; then echo "have    $pkg"; continue; fi
   url="$(fdroid_url "$pkg")"; [ -z "$url" ] && { echo "not on F-Droid: $pkg"; continue; }
   f="$apkdir/$pkg.apk"; [ -s "$f" ] || curl -sL -o "$f" "$url"
