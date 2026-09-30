@@ -58,4 +58,4 @@ SELinux is permissive. Front camera photo mode is reported flaky upstream. Mobil
 
 `downloads/` holds the stock BTU T555XXU1CRG1 firmware, hashed in the manifest. `scripts/restore-stock.sh` prints the heimdall command. Knox is tripped regardless; nothing on this tablet ever needed Knox.
 
-*orchardroot — made in Cheshire, under the supervision of two cats, one of whom sat on the tablet during the sideload.*
+*orchardroot — made in Cheshire, under the supervision of two cats, neither of whom was consulted about the wipe.*
