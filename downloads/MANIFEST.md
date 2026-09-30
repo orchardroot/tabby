@@ -11,4 +11,6 @@ All artefacts verified 2026-09-29. Hashes are SHA-256 unless stated.
 
 ## ROM hash
 
-Filled in once the download completes and `unzip -t` passes.
+sha256 0ff25389bb8d3cba79e378c8c3b58f279f63c350e6ede054a53fc9dc6ecdc153 for the original zip (853074046 bytes, `unzip -t` clean, signed by SignApk).
+
+`e-1.20-r-20240321-UNOFFICIAL-gt510lte_nocheck.zip` (853073871 bytes) is the same zip with the device assert removed from `META-INF/com/google/android/updater-script`. Needed because TWRP 3.1.0's legacy property environment reports an empty `ro.product.device` once /system is wiped, so the stock assert fails with `E3004: ... this device is .`. Installed 2026-09-29, RC=0, 270 s.
