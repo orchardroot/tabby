@@ -1,0 +1,8 @@
+foundation.e.apps
+foundation.e.drive
+foundation.e.pwaplayer
+foundation.e.webcalendarmanager
+foundation.e.mapsoverlay
+com.generalmagic.magicearth
+org.lineageos.updater
+foundation.e.browser

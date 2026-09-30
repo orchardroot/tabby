@@ -11,8 +11,8 @@ de.danoeh.antennapod
 org.schabi.newpipe
 com.termux
 org.kde.kdeconnect_tp
-com.simplemobiletools.gallery.pro
-com.simplemobiletools.filemanager.pro
+org.fossify.gallery
+org.fossify.filemanager
 org.joinmastodon.android
 com.nextcloud.client
 com.keylesspalace.tusky

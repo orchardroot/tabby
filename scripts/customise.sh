@@ -12,7 +12,9 @@ fdroid_url() {
 import json,sys
 idx=json.load(open(sys.argv[1])); pkg=sys.argv[2]
 apps=idx["packages"].get(pkg,[])
-print("https://f-droid.org/repo/"+apps[0]["apkName"] if apps else "")
+# 32-bit tablet: take the newest build that is universal or ships armeabi-v7a
+ok=[a for a in apps if not a.get("nativecode") or "armeabi-v7a" in a["nativecode"]]
+print("https://f-droid.org/repo/"+ok[0]["apkName"] if ok else "")
 PY
 }
 installed="$(adbs shell pm list packages | tr -d '\r')"
@@ -27,7 +29,7 @@ say "Private DNS (Quad9 until RethinkDNS takes over)"
 adbs shell settings put global private_dns_mode hostname
 adbs shell settings put global private_dns_specifier dns.quad9.net
 say "Disable packages"
-while read -r p; do [ -n "$p" ] && { adbs shell pm disable-user --user 0 "$p" || true; }; done < "$ROOT/scripts/disable-packages.txt"
+while read -r p; do [ -n "$p" ] && { adbs shell pm disable-user --user 0 "$p" </dev/null || true; }; done < "$ROOT/scripts/disable-packages.txt"
 say "Location: device-only (GPS) until a non-Google network backend is chosen"
 adbs shell settings put secure location_mode 1
 say "Misc"
