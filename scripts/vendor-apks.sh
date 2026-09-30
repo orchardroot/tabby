@@ -16,8 +16,8 @@ if ! have org.torproject.torbrowser; then
   inst "https://dist.torproject.org/torbrowser/$v/tor-browser-android-armv7-$v.apk" "$d/torbrowser-armv7.apk"
 fi
 if ! have org.torproject.android; then
-  u="$(curl -sL https://api.github.com/repos/guardianproject/orbot/releases/latest | python3 -c 'import json,sys;a=[x["browser_download_url"] for x in json.load(sys.stdin)["assets"] if x["name"].endswith(".apk") and ("universal" in x["name"] or "fullperm" in x["name"] or "armeabi" in x["name"])];print(a[0] if a else "")')"
-  [ -n "$u" ] && inst "$u" "$d/orbot.apk" || echo "no orbot asset found"
+  u="$(curl -sL https://api.github.com/repos/guardianproject/orbot-android/releases/latest | python3 -c 'import json,sys;a=[x["browser_download_url"] for x in json.load(sys.stdin)["assets"] if x["name"].endswith(".apk") and ("armeabi-v7a" in x["name"] or "universal" in x["name"])];print(a[0] if a else "")')"
+  [ -n "$u" ] && inst "$u" "$d/orbot-armv7.apk" || echo "no orbot asset found"
 fi
 if ! have org.koreader.launcher; then
   u="$(curl -sL https://api.github.com/repos/koreader/koreader/releases/latest | python3 -c 'import json,sys;a=[x["browser_download_url"] for x in json.load(sys.stdin)["assets"] if x["name"].endswith(".apk") and "arm-" in x["name"] and "arm64" not in x["name"]];print(a[0] if a else "")')"
