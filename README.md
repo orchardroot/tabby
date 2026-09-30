@@ -44,6 +44,7 @@ backup/                   EFS and modem partition dumps (never committed, never 
 | `vendor-apks.sh` | Signal, Tor Browser, Orbot, KOReader from their own hosts |
 | `build-wifi-overlay.sh` | builds and signs the SAE-upgrade overlay |
 | `install-wifi-overlay.sh` | pushes it into /vendor/overlay and reboots (needs Rooted debugging) |
+| `install-bootanimation.sh` | installs the Tabby boot animation, backing up the original |
 | `restore-stock.sh` | the way back to stock BTU firmware. Untested by design |
 
 ## Things that bit me
@@ -65,6 +66,16 @@ signed with the same public test key as the Wi-Fi module and dropped into
 `/vendor/overlay`. Sources and the write-up are in `overlay/wifi-sae-upgrade/`.
 Build with `scripts/build-wifi-overlay.sh`, install with
 `scripts/install-wifi-overlay.sh`. No router changes needed.
+
+## Branding
+
+The /e/ bouncing logo is replaced by a Tabby boot animation: two tabby-orange eyes
+open and blink, the wordmark rises, and a striped bar drifts until Android is up.
+It's drawn procedurally by `branding/bootanimation/make.py` (Pillow, Avenir Next
+Heavy from macOS) and packaged as the stored zip that bootanimation insists on.
+`scripts/install-bootanimation.sh` backs up the original, drops the new one into
+`/system/media`, and plays it once as a preview. The Samsung logo before it lives
+in the PARAM partition and is left alone on purpose.
 
 ## Known limitations of this build
 
